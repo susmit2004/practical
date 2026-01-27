@@ -1,0 +1,3397 @@
+JAVA ASSIGNMENT 1 
+Name:- Umme Kulsum 
+Roll No.:- 25 
+Div:- A 
+1) Assignment on Java Generics:- 
+1.1  Write a java program to demonstrate the Generic Class.  
+CODE:- 
+package Generics; 
+class Geg<T>{ 
+T obj; 
+Geg(T obj) { this.obj = obj; } 
+public T get() { return this.obj;} 
+} 
+public class Generics { 
+public static void main(String[] args) { 
+Geg <String> s = new Geg<String>("Welcome to MCA 
+first year"); 
+System.out.println(s.get()); 
+Geg <String> S =new Geg<String>("My name is Umme 
+Kulsum and Roll No is :-"); 
+System.out.println(S.get()); 
+Geg <Integer> i = new Geg<Integer>(25); 
+System.out.println(i.get());; 
+} 
+} 
+OUTPUT 
+1.2 Write a java program to demonstrate Generic Methods. 
+CODE: 
+package GenericAssignment; 
+public class GenericAssignment { 
+// Generic method definition 
+public static <T> void printArray(T[] array) { 
+System.out.print("Array elements: "); 
+for (T element : array) { 
+System.out.print(element + " "); 
+} 
+System.out.println(); 
+} 
+public static void main(String[] args) { 
+Integer[] intArray = {1, 2, 3, 4, 5}; 
+System.out.println("Printing Integer array:"); 
+printArray(intArray); 
+String[] stringArray = {"Hello", "MCA", "First", 
+"Year"}; 
+System.out.println("\nPrinting the String array:"); 
+printArray(stringArray); 
+Double[] doubleArray = {2.4, 2.4, 2.4}; 
+System.out.println("\nPrinting Double array:"); 
+printArray(doubleArray); 
+} 
+} 
+OUTPUT: 
+1.3Write a java program to demonstrate Wildcards in Java Generics. 
+(a) Upper bounded wildcards:- 
+package WildcardsUpper; 
+import java.util.*; 
+public class WildcardsUpper { 
+public static void main(String[] args) { 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+4); 
+} 
+List<Integer> l1 = Arrays.asList(2, 8, 9, 6, 7, 8, 9, 
+System.out.println("The total sum is: " + sum(l1)); 
+List<Double> l2 = Arrays.asList(4.1, 4.3, 6.7, 2.4); 
+System.out.println("The total sum is: " + sum(l2)); 
+private static double sum(List<? extends Number> list) { 
+double sum = 0.0; 
+for (Number num : list) { 
+sum += num.doubleValue(); 
+} 
+return sum; 
+} 
+} 
+OUTPUT: 
+(b) Lower bounded wildcards:- 
+package WildcardsLower; 
+import java.util.*; 
+public class WildcardsLower { 
+public static void main(String[] args) { 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+} 
+List<Integer> list1 = Arrays.asList(7, 8, 9, 3, 4, 5); 
+print1(list1); 
+List<Number> list2 = Arrays.asList(3, 45, 56, 7, 4); 
+print1(list2); 
+public static void print1(List<? super Integer> list) { 
+System.out.println(list); 
+} 
+} 
+OUTPUT: 
+(c) Unbounded wildcards:- 
+package WildcardsUnbound; 
+import java.util.*; 
+public class WildcardsUnbound { 
+public static void main(String[] args) { 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+List<Integer> list1 = Arrays.asList(3, 2, 5, 6); 
+List<Double> list2 = Arrays.asList(2.2, 6.7, 6.6, 
+8.8); 
+printlist(list1); 
+printlist(list2); 
+} 
+private static void printlist(List<?> list) { 
+System.out.println(list); 
+} 
+} 
+OUTPUT: 
+2) Assignment on List Interface:- 
+(2.1) Write a Java program to create List containing list of items of type String 
+and use for-each loop to print the items of the list. 
+CODE: 
+package ArraylistDemo; 
+import java.util.*; 
+import java.util.ArrayList; 
+import java.util.Iterator; 
+public class ArraylistDemo { 
+public static void main(String args[]) { 
+int a; 
+ArrayList<String> list = new ArrayList<String>(); 
+list.add("purple"); 
+list.add("green"); 
+list.add("Yellow"); 
+list.add("red"); 
+System.out.println(list); 
+System.out.println("Traversing list through for each 
+loop"); 
+for (String color : list) 
+System.out.println(color); 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+System.out.println("Traversing list through 
+iterator"); 
+Iterator itr = list.iterator(); 
+while (itr.hasNext()) { 
+System.out.println(itr.next()); 
+} 
+} 
+} 
+OUTPUT: 
+2.2 Write a Java program to create List containing list of items and use 
+ListIterator interface to print items present in the list. Also print the list in 
+reverse/backward direction 
+Code: 
+package ListIterator1; 
+import java.util.*; 
+public class ListIterator1 { 
+public static void main(String args[]) { 
+List<String> mylist = new ArrayList<String>(); 
+mylist.add("Saurav"); 
+mylist.add("Kabir"); 
+mylist.add("Ayesha"); 
+mylist.add("Praneeta"); 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+System.out.println("Original list"); 
+Iterator<String> itr = mylist.iterator(); 
+while (itr.hasNext()) { 
+System.out.println(itr.next()); 
+} 
+Collections.reverse(mylist); 
+System.out.println("reversed list"); 
+Iterator<String> itr1 = mylist.iterator(); 
+while (itr1.hasNext()) { 
+System.out.println(itr1.next()); 
+} 
+} 
+} 
+OUTPUT: 
+3) Assignment on SET Interface:- 
+(3.1) Write a Java program to create a Set containing list of items of type 
+String and print the items in the list using Iterator interface. Also print the list 
+in reverse/backward direction. 
+CODE:- 
+package SetIterator1; 
+import java.util.*; 
+public class SetIterator1 { 
+public static void main(String[] args) { 
+System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+Scanner sc = new Scanner(System.in); 
+Set<String> itemSet = new LinkedHashSet<>(); 
+System.out.print("Enter the number of items: "); 
+int n = sc.nextInt(); 
+sc.nextLine(); 
+System.out.println("Enter the items:"); 
+for (int i = 0; i < n; i++) { 
+System.out.print("Item " + (i + 1) + ": "); 
+String item = sc.nextLine(); 
+itemSet.add(item); 
+} 
+LinkedList<String> itemList = new 
+LinkedList<>(itemSet); 
+ListIterator<String> iterator = 
+itemList.listIterator(); 
+System.out.println("\nItems in the Set (forward 
+direction):"); 
+while (iterator.hasNext()) { 
+System.out.println("- " + iterator.next()); 
+} 
+System.out.println("\nItems in the Set (backward 
+direction):"); 
+while (iterator.hasPrevious()) { 
+System.out.println("- " + iterator.previous()); 
+} 
+sc.close(); 
+} 
+} 
+OUTPUT: 
+(3.2) Write a Java program using Set interface containing list of items and 
+Perform the following operations:  
+a. Add items in the set.  
+b. Insert items of one set in to other set.  
+c. Remove items from the set  
+d. Search the specified item in the set 
+CODE: 
+package SetLterator2; 
+import java.util.*; 
+public class SetLterator2 { 
+public static void main(String[] args) { 
+System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+Set<String> set1 = new LinkedHashSet<>(); 
+System.out.print("Enter number of items to add in 
+first set: "); 
+Scanner sc = new Scanner(System.in); 
+int n1 = sc.nextInt(); 
+sc.nextLine(); 
+System.out.println("Enter items for first set:"); 
+for (int i = 0; i < n1; i++) { 
+System.out.print("Item " + (i + 1) + ": "); 
+set1.add(sc.nextLine()); 
+} 
+System.out.println("First Set: " + set1); 
+Set<String> set2 = new TreeSet<>(); 
+System.out.print("\nEnter number of items to add in 
+second set: "); 
+int n2 = sc.nextInt(); 
+sc.nextLine(); 
+System.out.println("Enter items for second set:"); 
+for (int i = 0; i < n2; i++) { 
+System.out.print("Item " + (i + 1) + ": "); 
+set2.add(sc.nextLine()); 
+} 
+System.out.println("Second Set: " + set2); 
+set1.addAll(set2); 
+System.out.println("\nAfter inserting items of second 
+set into first set:"); 
+System.out.println("First Set (after merge): " + 
+set1); 
+System.out.print("\nEnter item to remove from first 
+set: "); 
+String removeItem = sc.nextLine(); 
+if (set1.remove(removeItem)) { 
+System.out.println(removeItem + " removed 
+successfully."); 
+} else { 
+System.out.println(removeItem + " not found in the 
+set."); 
+set1); 
+"); 
+} 
+System.out.println("First Set after removal: " + 
+System.out.print("\nEnter item to search in first set: 
+String searchItem = sc.nextLine(); 
+if (set1.contains(searchItem)) { 
+System.out.println(searchItem + " is present in 
+the set."); 
+} else { 
+System.out.println(searchItem + " is not found in 
+the set."); 
+} 
+sc.close(); 
+} 
+} 
+OUTPUT: 
+4) Assignment on MAP Interface: 
+(4.1) Write a Java program using Map interface containing list of items having 
+keys and associated values and perform the following operations:  
+a. Add items in the map.  
+b. Remove items from the map  
+c. Search specific key from the map  
+d. Get value of the specified key  
+e. Insert map elements of one map in to other map.  
+f. Print all keys and values of the map. 
+CODE: 
+package MapIterator1; 
+import java.util.*; 
+public class MapIterator1 { 
+public static void main(String args[]) { 
+System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+Map<String,String> hmap = new HashMap<>(); 
+hmap.put("Delhi", "New Delhi"); 
+hmap.put("South korea", "Seoul"); 
+hmap.put("Japan", "Tokyo"); 
+hmap.put("Russia", "Moscow"); 
+hmap.put("United Kingdom", "London"); 
+for (Map.Entry<String, String> m : hmap.entrySet()) { 
+System.out.println("Capital of " + m.getKey() + " 
+is " + m.getValue()); 
+} 
+System.out.println("--------"); 
+hmap.remove("United Kingdom"); 
+for (Map.Entry<String, String> m : hmap.entrySet()) { 
+System.out.println("Capital of " + m.getKey() + " 
+is " + m.getValue()); 
+} 
+System.out.println("_____"); 
+System.out.println("Capital of India is " + 
+hmap.get("Delhi")); 
+System.out.println("_____"); 
+Map<String, String> hmap2 = new HashMap<>(); 
+hmap2.put("Germany", "Berlin"); 
+hmap2.put("Georgia", "Tbilisi"); 
+hmap.putAll(hmap2); 
+for (Map.Entry<String, String> m : hmap.entrySet()) { 
+System.out.println("Capital of " + m.getKey() + " 
+is " + m.getValue()); 
+} 
+} 
+} 
+OUTPUT: 
+(5) LAMBDA EXPRESSIONS  
+(5.1) Write a Java program using Lambda Expression to print ”Hello World”. 
+CODE :- 
+package LamdaHelloWorld; 
+interface hello1 { 
+void hi(); 
+} 
+public class LamdaHelloWorld { 
+public static void main(String[] args) { 
+System.out.println("Name:- Umme Kulsum, Roll No.:- 
+25"); 
+} 
+} 
+OUTPUT: 
+hello1 h1 = () -> { 
+System.out.print("hello world lambda"); 
+}; 
+h1.hi(); 
+(5.2) Write a Java program using Lambda Expression with single parameters.  
+CODE:- 
+package LambdaSinglePara; 
+interface cube { 
+double cubevolume(double L); 
+} 
+public class LambdaSinglePara { 
+public static void main(String[] args) { 
+System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+cube c2 = (L) -> { 
+return L * L * L; 
+}; 
+System.out.print(c2.cubevolume(2)); 
+} 
+} 
+OUTPUT: 
+(5.3) Write a Java program using Lambda Expression with multiple 
+parameters to add two numbers. 
+CODE: 
+package LambdaTwoPara; 
+import java.util.*; 
+interface Lambda { 
+double addNum(double a, double b); 
+} 
+public class LambdaTwoPara { 
+public static void main(String[] args) { 
+        System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+        Scanner sc = new Scanner(System.in); 
+        System.out.print("Enter first number: "); 
+        double num1 = sc.nextDouble(); 
+        System.out.print("Enter second number: "); 
+        double num2 = sc.nextDouble(); 
+ 
+        Lambda m = (a, b) -> a + b; 
+        System.out.println("\nAddition: " + m.addNum(num1, 
+num2)); 
+        sc.close(); 
+    } 
+} 
+OUTPUT: 
+ 
+ 
+5.4 Write a Java program using Lambda Expression to calculate the following:  
+a. Convert Fahrenheit to Celcius 
+b. Convert Kilometers to Miles.  
+CODE:- 
+package ASSIGNMENT; 
+import java.util.Scanner; 
+interface TemperatureConverter { 
+    double convert(double celsius); 
+} 
+interface DistanceConverter { 
+    double convert(double kilometers); 
+} 
+public class Temp { 
+    public static void main(String[] args) { 
+        System.out.println("Name: Ritesh Shinde, Div: B, Roll No: 54\n"); 
+        Scanner sc = new Scanner(System.in); 
+ 
+        TemperatureConverter tempConverter = (celsius) -> (celsius * 1.8) + 32; 
+        DistanceConverter distanceConverter = (kilometers) -> kilometers * 0.623; 
+ 
+        System.out.println("Choose Conversion Type:"); 
+        System.out.println("1. Celsius to Fahrenheit"); 
+        System.out.println("2. Kilometer to Mile"); 
+        System.out.print("Enter your choice (1 or 2): "); 
+ 
+        int choice = sc.nextInt(); 
+ 
+        if (choice == 1) { 
+            System.out.print("Enter temperature in Celsius: "); 
+            double celsius = sc.nextDouble(); 
+            System.out.println("Temperature in Fahrenheit: " + tempConverter.convert(celsius)); 
+        } else if (choice == 2) { 
+            System.out.print("Enter distance in Kilometers: "); 
+            double kilometers = sc.nextDouble(); 
+            System.out.println("Distance in Miles: " + distanceConverter.convert(kilometers)); 
+        } else { 
+            System.out.println("Invalid choice! Please select 1 or 2."); 
+        } 
+        sc.close(); 
+    } 
+} 
+OUTPUT: 
+ 
+ 
+ 
+ 
+(5.5) Write a Java program using Lambda Expression with or without return 
+keyword. 
+ CODE :- 
+package return1; 
+ 
+import java.util.Scanner; 
+ 
+interface GreetingMessage { 
+    String showMessage(String name); 
+} 
+ 
+interface MorningGreeting { 
+    void greet(); 
+} 
+ 
+public class return1 { 
+    public static void main(String[] args) { 
+        System.out.println("Name: Umme Kulsum ,Roll No: 25\n"); 
+        Scanner sc = new Scanner(System.in); 
+ 
+        GreetingMessage personalizedGreeting = (name) -> { 
+            return "Hello Dear, " + name + ", GOOD EVENING!"; 
+        }; 
+ 
+        MorningGreeting morningGreeting = () -> { 
+            System.out.println("Please take your Coffee!"); 
+        }; 
+ 
+        System.out.print("Enter your name: "); 
+        String userName = sc.nextLine(); 
+        System.out.println(personalizedGreeting.showMessage(userName)); 
+        morningGreeting.greet(); 
+ 
+        sc.close(); 
+    } 
+} 
+ 
+OUTPUT: 
+5.6 Write a Java program using Lambda Expression to concatenate two 
+strings.  
+CODE :- 
+package strConcat; 
+import java.util.*; 
+interface ConcatStr { 
+public String concat(String s1, String s2); 
+} 
+public class StrConcat { 
+public static void main(String[] args) { 
+System.out.println("Name: Umme Kulsum, Div: A, Roll 
+No: 25\n"); 
+ConcatStr cs = (String s1, String s2) -> s1 + s2; 
+System.out.println("Concatenating \"hello,\" and \" 
+World\" = " + cs.concat(" Hello,", "World")); 
+} 
+} 
+OUTPUT: 
+
+Umme Kulsum A25  
+Advanced Java 
+Assignment – 2 
+ 
+Name – Umme Kulsum | Div – A | Roll no – 25 
+ 
+Web Application development using JSP 
+ 
+1. Create a Telephone directory using JSP and store all the information within a 
+database, so that later could be retrieved as per the requirement. Make your own 
+assumptions. 
+ 
+Database table (phone1) : 
+ 
+CREATE TABLE phone1 
+( 
+id SERIAL PRIMARY KEY, name 
+varchar(50), 
+no varchar(50) 
+); 
+Index.jsp : 
+ 
+<%@page import="java.sql.*" %> 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+ 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+ 
+if(request.getParameter("delete")!=null) 
+Umme Kulsum A25  
+{ int 
+id=Integer.parseInt(request.getParameter("delete")); 
+ 
+PreparedStatement pstmt=null; //create statement 
+ 
+pstmt=con.prepareStatement("delete from phone1 where id=? "); // delete query 
+pstmt.setInt(1,id); pstmt.executeUpdate(); //execute query 
+ 
+con.close(); //close connection 
+} } 
+catch(Exception e) 
+{ 
+out.println(e); 
+} 
+%> 
+<html> 
+ 
+<head> 
+ 
+<title>JSP Program to Insert, Update, Delete </title> 
+</head> 
+ 
+<body> 
+ 
+<br> 
+<br> 
+<center> 
+<h1><a href="add.jsp">CLICK HERE TO ADD A NEW MOBILE NUMBER</a></h1> 
+</center> 
+<br> 
+<center> 
+<table border='1' cellpadding='23'> 
+</center> 
+<tr> 
+<th>ID</th> 
+<th>NAME</th> 
+<th>MOBILE NUMBER</th> 
+<th>UPDATE</th> 
+<th>DELETE</th> 
+</tr> 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+ 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+Umme Kulsum A25  
+ 
+PreparedStatement pstmt=null; //create statement 
+pstmt=con.prepareStatement("select * from phone1"); //select query 
+ResultSet rs=pstmt.executeQuery(); //execute query and set in resultset object rs. 
+ 
+while(rs.next()) 
+{ 
+%> 
+<tr> 
+<td><%=rs.getInt(1)%></td> 
+<td><%=rs.getString(2)%></td> 
+<td><%=rs.getString(3)%></td> 
+<td><a href="update.jsp?edit=<%=rs.getInt(1)%> ">Edit</a></td> 
+<td><a href="?delete=<%=rs.getInt(1)%> ">Delete</a></td> 
+ 
+</tr> 
+<% 
+} 
+ 
+} 
+catch(Exception e) 
+{ 
+out.println(e); 
+} 
+ 
+%> 
+ 
+</table> 
+ 
+</body> 
+ 
+</html> 
+ 
+ 
+Add.jsp : 
+ 
+<%@ page import="java.sql.*" %> 
+ 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+Umme Kulsum A25  
+ 
+if(request.getParameter("btn_add")!=null) //check button click event not null { 
+String name,no; name=request.getParameter("txt_name"); 
+//txt_name no=request.getParameter("txt_no"); 
+//txt_owner 
+ 
+PreparedStatement pstmt=null; //create statement 
+ 
+pstmt=con.prepareStatement("insert into phone1(name,no)values(?,?)"); // insert query 
+pstmt.setString(1,name); pstmt.setString(2,no); 
+pstmt.executeUpdate();  //execute  query  con.close(); //close connection 
+out.println("Insert Successfully...! Click Home page.");// after insert record successfully 
+message 
+ 
+} 
+ 
+} catch(Exception 
+e) 
+{ 
+out.println(e); } 
+ 
+%> 
+ 
+<html> 
+ 
+<head> 
+ 
+<title>JSP:Insert, Update, Delete using MySQL</title> 
+ 
+<!-- javascript for form validation--> 
+<script> 
+ 
+function validate() 
+{ 
+var name = document.myform.txt_name; 
+var no = document.myform.txt_no; if 
+(name.value == "") 
+{ 
+window.alert("please enter a name ?"); 
+name.focus(); return false; } if 
+(no.value == "") 
+{ 
+window.alert("please enter a mobile number ?"); 
+name.focus(); return false; 
+} 
+ 
+} 
+ 
+</script> 
+</head> 
+<body> 
+Umme Kulsum A25  
+<form method="post" name="myform" onsubmit="return validate();"> 
+<center> 
+<h1>Insert Record</h1> 
+</center> 
+<table> 
+<tr> 
+<td><b>Name: </b></td> 
+<td><input type="text" name="txt_name"></td> 
+</tr> 
+<tr> 
+<td><b>Phone number:</b></td></b> 
+<td><input type="text" name="txt_no"></td> 
+</tr> 
+<tr> 
+<td><input type="submit" name="btn_add" value="Insert"></td> 
+</tr> 
+</table> 
+<center> 
+<h1><a href="index.jsp">Home page</a></h1> 
+</center> 
+ 
+</form> 
+ 
+</body> 
+ 
+</html> 
+ 
+Update.jsp : 
+ 
+<%@ page import="java.sql.*" %> 
+ 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+ 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+ 
+if(request.getParameter("btn_update")!=null) //check button click event not null 
+{ int 
+hide,name,no;; 
+ 
+String name_up,no_up; 
+Umme Kulsum A25  
+hide=Integer.parseInt(request.getParameter("txt_hide")); //it is hidden id get for update record 
+name_up=request.getParameter("txt_name"); no_up=request.getParameter("txt_no"); 
+//txt_name 
+ 
+ 
+PreparedStatement pstmt=null; //create statement 
+ 
+pstmt=con.prepareStatement("update phone1 set name=?,no=? where id=?"); // update query 
+pstmt.setString(1,name_up); pstmt.setString(2,no_up); pstmt.setInt(3,hide); 
+pstmt.executeUpdate(); //execute query 
+ 
+con.close(); //connection close 
+ 
+out.println("Update Successfully...! Click Back link."); //after update record successfully 
+message 
+} 
+ 
+} catch(Exception 
+e) 
+{ 
+out.println(e); 
+} 
+%> 
+ 
+<html> 
+ 
+<head> 
+ 
+<title>JSP:Insert, Update, Delete using MySQL</title> 
+ 
+ 
+ 
+<!-- javascript for form validation--> 
+<script> 
+ 
+function validate() 
+{ 
+var name = document.myform.txt_name; 
+var no = document.myform.txt_no; 
+ 
+if (rno.value == "") 
+{ 
+window.alert("please enter name ?"); 
+name.focus(); return false; } if 
+(name.value == "") 
+{ 
+window.alert("please enter number ?"); 
+name.focus(); return false; 
+} 
+} 
+Umme Kulsum A25  
+</script> 
+ 
+</head> 
+ 
+<body> 
+ 
+ 
+ 
+<form method="post" name="myform" onsubmit="return validate();"> 
+ 
+<center> 
+<h1>Update Record</h1> 
+</center> 
+ 
+<table> 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+ 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+ 
+if(request.getParameter("edit")!=null) 
+{ int 
+id=Integer.parseInt(request.getParameter("edit")); 
+ 
+String name,no; 
+ 
+PreparedStatement pstmt=null; // create statement 
+ 
+pstmt=con.prepareStatement("select * from phone1 where id=?"); // sql select query 
+pstmt.setInt(1,id); 
+ResultSet rs=pstmt.executeQuery(); // execute query store in resultset object rs. 
+ 
+while(rs.next()) 
+{ id=rs.getInt(1); 
+name=rs.getString(2); 
+no=rs.getString(3); 
+ 
+%> 
+<tr> 
+<td>Name</td> 
+<td><input type="text" name="txt_name" value="<%=name%>"></td> 
+</tr> 
+<tr> 
+Umme Kulsum A25  
+<td>Mobile Number</td> 
+<td><input type="text" name="txt_no" value="<%=no%>"></td> 
+</tr> 
+<tr> 
+<td><input type="submit" name="btn_update" value="Update"></td> </tr> 
+ 
+<input type="hidden" name="txt_hide" value="<%=id%>"> 
+<% 
+} 
+} } 
+catch(Exception e) 
+{ 
+out.println(e); 
+} 
+%> 
+</table> 
+ 
+<center> 
+<h1><a href="index.jsp">Back</a></h1> 
+</center> 
+ 
+</form> 
+ 
+</body> 
+ 
+</html> 
+ 
+Output: 
+Umme Kulsum A25  
+ 
+ 
+ 
+ 
+● Adding new record to database 
+ 
+Umme Kulsum A25  
+ 
+ 
+ 
+ 
+2. Write a JSP page to display the Registration form (Make your own 
+assumptions) 
+ 
+ 
+Create a Database Table 
+CREATE TABLE studentreg1 
+( 
+id SERIAL PRIMARY KEY, 
+first_name varchar(50), 
+last_name varchar(50), 
+phn_number varchar(20), 
+address varchar(20), 
+course varchar(20), 
+college_name varchar(20) 
+); 
+ 
+Add.jsp 
+<%@ page import="java.sql.*" %> 
+Umme Kulsum A25  
+ 
+<% 
+try { 
+String driver = "org.postgresql.Driver"; 
+String url = "jdbc:postgresql://localhost:5432/postgres"; 
+String username = "postgres"; 
+String password = "admin"; 
+Connection con = null; 
+Class.forName(driver).newInstance(); 
+con = DriverManager.getConnection(url, username, password); 
+System.out.println("Opened database successfully"); 
+// Check button click event 
+if (request.getParameter("btn_add") != null) { 
+String first_name, last_name, phn_number, address, course, college_name; 
+first_name = request.getParameter("txt_first_name"); 
+last_name = request.getParameter("txt_last_name"); 
+phn_number = request.getParameter("txt_phn_number"); 
+address = request.getParameter("txt_address"); 
+course = request.getParameter("txt_course"); 
+college_name = request.getParameter("txt_college_name"); 
+PreparedStatement pstmt = null; 
+pstmt = con.prepareStatement( 
+"INSERT INTO studentreg1 " + 
+"(first_name, last_name, phn_number, address, course, college_name) " + 
+"VALUES (?, ?, ?, ?, ?, ?)" 
+); 
+ 
+pstmt.setString(1, first_name); 
+pstmt.setString(2, last_name); 
+pstmt.setString(3, phn_number); 
+pstmt.setString(4, address); 
+pstmt.setString(5, course); 
+pstmt.setString(6, college_name); 
+ 
+pstmt.executeUpdate(); 
+con.close(); 
+out.println("Insert Successfully...!"); 
+} 
+} catch (Exception e) { 
+out.println(e); 
+Umme Kulsum A25  
+} 
+%> 
+ 
+<html> 
+<head> 
+<title>Student Registration</title> 
+ 
+<!-- JavaScript for form validation --> 
+<script> 
+function validate() { 
+var first_name = document.myform.txt_first_name; 
+var last_name = document.myform.txt_last_name; 
+var phn_number = document.myform.txt_phn_number; 
+var address = document.myform.txt_address; 
+var course = document.myform.txt_course; 
+var college_name = document.myform.txt_college_name; 
+ 
+if (first_name.value == "") { 
+window.alert("Please enter a first name"); 
+first_name.focus(); 
+return false; 
+} 
+ 
+if (last_name.value == "") { 
+window.alert("Please enter a last name"); 
+last_name.focus(); 
+return false; 
+} 
+ 
+if (phn_number.value == "") { 
+window.alert("Please enter a mobile number"); 
+phn_number.focus(); 
+return false; 
+} 
+ 
+if (address.value == "") { 
+window.alert("Please enter address"); 
+address.focus(); 
+return false; 
+} 
+ 
+if (course.value == "") { 
+window.alert("Please enter course"); 
+course.focus(); 
+return false; 
+} 
+ 
+if (college_name.value == "") { 
+window.alert("Please enter college name"); 
+college_name.focus(); 
+Umme Kulsum A25  
+return false; 
+} 
+ 
+return true; 
+} 
+</script> 
+</head> 
+ 
+<body bgcolor="deea94"> 
+<div align="center"> 
+<form method="post" name="myform" onsubmit="return validate();"> 
+ 
+<h1><u>STUDENT REGISTRATION FORM</u></h1> 
+<br> 
+ 
+<table> 
+<tr> 
+<td><b>First Name:</b></td> 
+<td><input type="text" name="txt_first_name"></td> 
+</tr> 
+ 
+<tr> 
+<td><b>Last Name:</b></td> 
+<td><input type="text" name="txt_last_name"></td> 
+</tr> 
+ 
+<tr> 
+<td><b>Phone Number:</b></td> 
+<td><input type="text" name="txt_phn_number"></td> 
+</tr> 
+ 
+<tr> 
+<td><b>Address:</b></td> 
+<td><input type="text" name="txt_address"></td> 
+</tr> 
+ 
+<tr> 
+<td><b>Course:</b></td> 
+<td><input type="text" name="txt_course"></td> 
+</tr> 
+ 
+<tr> 
+<td><b>College Name:</b></td> 
+<td><input type="text" name="txt_college_name"></td> 
+</tr> 
+ 
+<tr> 
+<td colspan="2" align="center"> 
+<br> 
+<input type="submit" name="btn_add" value="Submit"> 
+Umme Kulsum A25  
+<br> 
+</td> 
+</tr> 
+</table> 
+ 
+<br> 
+ 
+<p> 
+<span>&#8595;</span> 
+<u>Click Below to list all the</u> 
+<span>&#8595;</span> 
+</p> 
+ 
+<p> 
+<a href="index.jsp">Registered Students Details</a> 
+</p> 
+ 
+</form> 
+</div> 
+</body> 
+</html> 
+ 
+Index.jsp 
+<%@ page import="java.sql.*" %> 
+ 
+<% 
+try { 
+String driver = "org.postgresql.Driver"; 
+String url = "jdbc:postgresql://localhost:5432/postgres"; 
+String username = "postgres"; 
+String password = "admin"; 
+Connection con = null; 
+Class.forName(driver).newInstance(); 
+con = DriverManager.getConnection(url, username, password); 
+System.out.println("Opened database successfully"); 
+if (request.getParameter("delete") != null) { 
+int id = Integer.parseInt(request.getParameter("delete")); 
+ 
+PreparedStatement pstmt = null; 
+pstmt = con.prepareStatement( 
+"DELETE FROM studentreg1 WHERE id = ?" 
+); 
+ 
+pstmt.setInt(1, id); 
+pstmt.executeUpdate(); 
+Umme Kulsum A25  
+con.close(); 
+} 
+} catch (Exception e) { 
+out.println(e); 
+} 
+%> 
+ 
+<html> 
+<head> 
+<title>JSP: Insert, Update, Delete</title> 
+</head> 
+ 
+<body bgcolor="F9CDAD"> 
+ 
+<br><br><br> 
+ 
+<center> 
+<h1><u>DETAILS OF REGISTERED STUDENTS</u></h1> 
+</center> 
+ 
+<br><br> 
+ 
+<center> 
+<table border="1" cellpadding="23"> 
+<tr> 
+<th>ID</th> 
+<th>First Name</th> 
+<th>Last Name</th> 
+<th>Mobile Number</th> 
+<th>Address</th> 
+<th>Course</th> 
+<th>College Name</th> 
+</tr> 
+ 
+<% 
+try { 
+String driver = "org.postgresql.Driver"; 
+String url = "jdbc:postgresql://localhost:5432/postgres"; 
+String username = "postgres"; 
+String password = "admin"; 
+Connection con = null; 
+Class.forName(driver).newInstance(); 
+con = DriverManager.getConnection(url, username, password); 
+ 
+PreparedStatement pstmt = null; 
+pstmt = con.prepareStatement( 
+"SELECT * FROM studentreg1" 
+); 
+Umme Kulsum A25  
+ 
+ResultSet rs = pstmt.executeQuery(); 
+ 
+while (rs.next()) { 
+%> 
+<tr> 
+<td><%= rs.getInt(1) %></td> 
+<td><%= rs.getString(2) %></td> 
+<td><%= rs.getString(3) %></td> 
+<td><%= rs.getString(4) %></td> 
+<td><%= rs.getString(5) %></td> 
+<td><%= rs.getString(6) %></td> 
+<td><%= rs.getString(7) %></td> 
+</tr> 
+<% 
+} 
+} catch (Exception e) { 
+out.println(e); 
+} 
+%> 
+ 
+</table> 
+</center> 
+ 
+</body> 
+</html> 
+Output: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+: 
+Umme Kulsum A25  
+ 
+ 
+Umme Kulsum A25  
+ 
+ 
+ 
+3. Write a JSP program to add, delete and display the records from StudentMaster 
+(RollNo, Name, Semester, Course) table. 
+ 
+Database table(student1): 
+CREATE TABLE student1 
+( 
+id SERIAL PRIMARY KEY, 
+rno varchar(50), 
+name varchar(50), 
+semester varchar(50), 
+course varchar(50) 
+); 
+ 
+Index.jsp : 
+ 
+<%@page import="java.sql.*" %> 
+ 
+<% 
+try 
+ 
+{ 
+Umme Kulsum A25  
+String driver ="org.postgresql.Driver"; 
+ 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+if(request.getParameter("delete")!=null) 
+{ int id=Integer.parseInt(request.getParameter("delete")); PreparedStatement 
+pstmt=null; //create statement pstmt=con.prepareStatement("delete from 
+student1 where id=? "); // delete query pstmt.setInt(1,id); 
+pstmt.executeUpdate(); //execute query con.close(); //close connection 
+} } 
+ 
+catch(Exception 
+e) 
+{ 
+ 
+out.println(e); 
+ 
+} 
+ 
+%> 
+ 
+<html> 
+<head> 
+ 
+<title>JSP:Insert, Update, Delete </title> 
+ 
+</head> 
+ 
+<body> 
+ 
+<center> 
+ 
+<h1><a href="add.jsp">Add Record</a></h1> 
+ 
+</center> 
+Umme Kulsum A25  
+ 
+<table> 
+ 
+<tr> 
+ 
+<th>ID</th> 
+ 
+<th>Roll No</th> 
+ 
+<th>Name</th> 
+ 
+<th>Sem</th> 
+ 
+<th>Course</th> 
+ 
+<th>Update</th> 
+ 
+<th>Delete</th> 
+ 
+</tr> 
+ 
+<% 
+ 
+try 
+ 
+{ 
+ 
+String driver ="org.postgresql.Driver"; 
+ 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Class.forName(driver).newInstance(); 
+con = DriverManager.getConnection(url,username,password); 
+PreparedStatement pstmt=null; //create statement 
+pstmt=con.prepareStatement("select * from student1"); //select query 
+ResultSet rs=pstmt.executeQuery(); //execute query and set in resultset object rs. 
+ 
+ 
+while(rs.next()) 
+ 
+{ 
+ 
+%> 
+Umme Kulsum A25  
+<tr> 
+ 
+<td><%=rs.getInt(1)%></td> 
+ 
+<td><%=rs.getString(2)%></td> 
+ 
+<td><%=rs.getString(3)%></td> 
+ 
+<td><%=rs.getString(4)%></td> 
+ 
+<td><%=rs.getString(5)%></td> 
+ 
+<td><a href="update.jsp?edit=<%=rs.getInt(1)%> ">Edit</a></td> 
+ 
+<td><a href="?delete=<%=rs.getInt(1)%> ">Delete</a></td> 
+ 
+</tr> 
+ 
+<% 
+ 
+} } 
+ 
+catch(Exception 
+e) 
+{ 
+ 
+out.println(e); 
+ 
+} 
+ 
+%> 
+ 
+</table> 
+ 
+</body> 
+</html> 
+ 
+ 
+Add.jsp : 
+ 
+<%@ page import="java.sql.*" %> 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Umme Kulsum A25  
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+if(request.getParameter("btn_add")!=null) //check button click event not null 
+{ 
+String rno,name,semester,course; 
+rno=request.getParameter("txt_rno"); 
+name=request.getParameter("txt_name"); //txt_name 
+semester=request.getParameter("txt_sem"); //txt_owner 
+course=request.getParameter("txt_course"); //txt_owner 
+PreparedStatement pstmt=null; //create statement 
+pstmt=con.prepareStatement("insert into student1(rno,name,semester,course)values(?,?,?,?)"); // insert 
+query pstmt.setString(1,rno); pstmt.setString(2,name); pstmt.setString(3,semester); 
+pstmt.setString(4,course); pstmt.executeUpdate(); //execute query con.close(); //close connection 
+out.println("Insert Successfully...! Click Back link.");// after insert record successfully message 
+} } 
+catch(Exception 
+e) 
+{ 
+out.println(e); 
+} 
+%> 
+<html> 
+<head> 
+<title>JSP:Insert, Update, Delete using MySQL</title> 
+ 
+ 
+<!-- javascript for form validation--> 
+<script> 
+function validate() 
+{ 
+var rno = document.myform.txt_rno; var 
+name = document.myform.txt_name; var 
+semester = document.myform.txt_sem; var 
+course = document.myform.txt_course; if 
+(rno.value == "") 
+{ 
+window.alert("please enter rno 
+?"); name.focus(); return false; } 
+if (name.value == "") 
+{ 
+window.alert("please enter name 
+?"); name.focus(); return false; } if 
+(semester.value == "") 
+{ 
+window.alert("please enter sem 
+?"); owner.focus(); return false; } 
+if (course.value == "") 
+{ 
+window.alert("please enter course 
+?"); owner.focus(); return false; 
+} 
+Umme Kulsum A25  
+} 
+</script> 
+</head> 
+<body> 
+<form method="post" name="myform" onsubmit="return validate();"> 
+<center> 
+<h1>Insert Record</h1> 
+</center> 
+<table> 
+<tr> 
+<td>Roll No</td> 
+<td><input type="text" name="txt_rno"></td> 
+</tr> 
+<tr> 
+<td>Name</td> 
+<td><input type="text" name="txt_name"></td> 
+</tr> 
+<tr> 
+<td>Sem</td> 
+<td><input type="text" name="txt_sem"></td> 
+</tr> 
+<tr> 
+<td>Course</td> 
+<td><input type="text" name="txt_course"></td> 
+</tr> 
+<tr> 
+<td><input type="submit" name="btn_add" value="Insert"></td> 
+</tr> 
+</table> 
+<center> 
+<h1><a href="index.jsp">Back</a></h1> 
+</center> 
+</form> 
+</body> 
+</html> 
+ 
+Update.jsp : 
+<%@ page import="java.sql.*" %> 
+ 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+Umme Kulsum A25  
+if(request.getParameter("btn_update")!=null) //check button click event not null 
+{ int 
+hide,rno,name,semester,course;; 
+String rno_up,name_up,semester_up,course_up; 
+hide=Integer.parseInt(request.getParameter("txt_hide")); //it is hidden id get for update record 
+rno_up=request.getParameter("txt_rno"); 
+name_up=request.getParameter("txt_name"); //txt_name 
+semester_up=request.getParameter("txt_semester"); 
+course_up=request.getParameter("txt_course"); 
+PreparedStatement pstmt=null; //create statement 
+pstmt=con.prepareStatement("update student1 set rno=?,name=?, semester=?, course=? where id=?"); 
+// update query 
+pstmt.setString(1,rno_up); 
+pstmt.setString(2,name_up); 
+pstmt.setString(3,semester_up); 
+pstmt.setString(4,course_up); 
+pstmt.setInt(5,hide); 
+pstmt.executeUpdate(); //execute query con.close(); //connection close out.println("Update 
+Successfully...! Click Back link."); //after update record successfully message 
+} } 
+catch(Exception 
+e) 
+{ 
+out.println(e); 
+} 
+%> 
+<html> 
+<head> 
+<title>JSP:Insert, Update, Delete using MySQL</title> 
+ 
+<!-- javascript for form validation--> 
+<script> 
+ 
+function validate() 
+{ 
+var rno = document.myform.txt_rno; var name 
+= document.myform.txt_name; var semester = 
+document.myform.txt_semester; var course = 
+document.myform.txt_course; if (rno.value == 
+"") 
+{ 
+window.alert("please enter rno 
+?"); name.focus(); return false; } 
+if (name.value == "") 
+{ 
+window.alert("please enter name 
+?"); name.focus(); return false; } if 
+(semester.value == "") 
+{ 
+Umme Kulsum A25  
+window.alert("please enter sem 
+?"); owner.focus(); return false; } 
+if (course.value == "") 
+{ 
+window.alert("please enter course 
+?"); owner.focus(); return false; }} 
+</script> 
+</head> 
+<body> 
+ 
+<form method="post" name="myform" onsubmit="return validate();"> 
+<center> 
+<h1>Update Record</h1> 
+</center> 
+<table> 
+<% 
+try 
+{ 
+String driver ="org.postgresql.Driver"; 
+String url ="jdbc:postgresql://localhost:5432/postgres"; 
+String username ="postgres"; 
+String password ="admin"; 
+Connection con =null; 
+Class.forName(driver).newInstance(); con = 
+DriverManager.getConnection(url,username,password); 
+System.out.println("Opened database successfully"); 
+if(request.getParameter("edit")!=null) 
+{ int 
+id=Integer.parseInt(request.getParameter("edit")); 
+String rno,name,semester,course; 
+PreparedStatement pstmt=null; // create statement 
+pstmt=con.prepareStatement("select * from student1 where id=?"); // sql select query 
+pstmt.setInt(1,id); 
+ResultSet rs=pstmt.executeQuery(); // execute query store in resultset object rs. 
+while(rs.next()) 
+{ id=rs.getInt(1); 
+rno=rs.getString(2); 
+name=rs.getString(3); 
+semester=rs.getString(4) 
+; 
+course=rs.getString(5); 
+%> 
+<tr> 
+<td>Roll NO</td> 
+<td><input type="text" name="txt_rno" value="<%=rno%>"></td> 
+</tr> 
+<tr> 
+<td>Name</td> 
+<td><input type="text" name="txt_name" value="<%=name%>"></td> 
+</tr> 
+<tr> 
+Umme Kulsum A25  
+<td>Sem</td> 
+<td><input type="text" name="txt_semester" value="<%=semester%>"></td> 
+</tr> 
+<tr> 
+<td>Course</td> 
+<td><input type="text" name="txt_course" value="<%=course%>"></td> 
+</tr> 
+<tr> 
+<td><input type="submit" name="btn_update" value="Update"></td> 
+</tr> 
+<input type="hidden" name="txt_hide" value="<%=id%>"> 
+<% 
+} 
+} } 
+catch(Exception 
+e) 
+{ 
+out.println(e); 
+} 
+%> 
+</table> 
+<center> 
+<h1><a href="index.jsp">Back</a></h1> 
+</center> 
+</form> 
+</body></html> 
+ 
+Output: 
+Umme Kulsum A25  
+ 
+ 
+ 
+Umme Kulsum A25  
+ 
+ 
+4. Design loan calculator using JSP which accepts Period of Time (in years) and 
+Principal Loan Amount. Display the payment amount for each loan and then list the loan 
+balance and interest paid for each payment over the term of the loan for the following 
+time period and interest rate: a. 1 to 7 year at 5.35% 
+b. 8 to 15 year at 5.5% 
+c. 16 to 30 year at 5.75% 
+Cal.jsp : 
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>JSP Page</title> 
+</head> 
+<body><br><br><center> 
+<form action="test.jsp "><pre> 
+<h1>Principle :: <input type=text name=principle value=0 " ><br> 
+No. of Years :: <input type=text name=year value=0 " ><br> 
+Rate of Interest :: <input type=text name=interest value=0 " > %<br> 
+Umme Kulsum A25  
+<br> 
+<input type=submit value="Submit"></h1> 
+ 
+</pre></form></center> 
+</body> 
+</html> 
+ 
+Test.jsp: 
+ 
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd"> 
+ 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>JSP Page</title> 
+</head> 
+<body><br><br><center><pre><H1> 
+<% 
+ 
+String ns= request.getParameter("principle"); 
+String ns1= request.getParameter("year"); 
+String ns2= request.getParameter("interest"); 
+int n1=Integer.parseInt(ns); int 
+n2=Integer.parseInt(ns1); 
+float n3 = Float.valueOf(ns2); 
+ 
+double si=((n1*n2*n3)/100); double 
+x; 
+x=n1+si; 
+ 
+double r = (n3)/(12*100); 
+ 
+int mon; mon=((n2)*12); double emi= 
+(n1*r*Math.pow(1+r,mon))/(Math.pow(1+r,mon)-1); 
+ 
+ 
+ 
+%> 
+<% 
+out.println("Principle =  "+n1); 
+out.println(" Years = "+n2); 
+out.println(" Rate of Interest = "+n3); 
+out.println("<br> "); out.println("Loan 
+Amount = "+n1); out.println(" 
+Umme Kulsum A25  
+Interest Paid = "+si); out.println(" Total 
+Loan Amount = "+x); out.println("<br> 
+"); 
+out.print(" Loan Tenure in months= " +mon); 
+out.println("<br> "); 
+out.print(" EMI is= "+emi+"\n"); 
+ 
+%> 
+</H1> 
+</pre> 
+</center> 
+</body></body> 
+</html> 
+ 
+Output: 
+ 
+ 
+a. 1 to 7 year at 5.35% 
+ 
+Umme Kulsum A25  
+ 
+ 
+ 
+b. 8 to 15 year at 5.5% 
+ 
+ 
+c. 16 to 30 year at 5.75% 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5. Write a program using JSP that displays a webpage consisting Application form for 
+change of Study Center which can be filled by any student who wants to change his/ her 
+study center. Make necessary assumptions 
+ 
+ 
+ 
+Main.jsp 
+<%@ page language="java" 
+contentType="text/html; charset=ISO-8859-1" 
+Umme Kulsum A25  
+pageEncoding="ISO-8859-1" %> 
+ 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Study Center</title> 
+ 
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"> 
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"  
+crossorigin="anonymous"> 
+</head> 
+ 
+<body> 
+ 
+<center> 
+<h1>Change of Study Center</h1> 
+ 
+<form action="Main.jsp" method="post"> 
+<table> 
+<tr> 
+<td>UID No.</td> 
+<td> 
+<input type="text" name="uid" required /> 
+</td> 
+</tr> 
+ 
+<tr> 
+<td>Current Center</td> 
+<td> 
+<select name="currentCenter" required> 
+<option selected disabled hidden></option> 
+<option value="MUMBAI">MUMBAI</option> 
+<option value="PUNE">PUNE</option> 
+<option value="GUJRAT">GUJRAT</option> 
+</select> 
+</td> 
+</tr> 
+ 
+<tr> 
+<td>New Center</td> 
+<td> 
+<select name="newCenter" required> 
+<option selected disabled hidden></option> 
+<option value="MUMBAI">MUMBAI</option> 
+<option value="PUNE">PUNE</option> 
+Umme Kulsum A25  
+<option value="GUJRAT">GUJRAT</option> 
+</select> 
+</td> 
+</tr> 
+</table> 
+ 
+<br> 
+<input type="submit" value="Submit" /> 
+</form> 
+</center> 
+ 
+<% 
+if (request.getParameter("uid") != null 
+&& request.getParameter("currentCenter") != null 
+&& request.getParameter("newCenter") != null) { 
+ 
+out.println( 
+"<center><br>Your request to change Study Center from <br>" 
++ request.getParameter("currentCenter") 
++ " to " 
++ request.getParameter("newCenter") 
++ "<br> has been sent to the Administrator.</center>" 
+); 
+} 
+%> 
+ 
+</body> 
+</html> 
+ 
+ 
+ 
+ 
+ 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO- 
+8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Study Center</title> 
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl   
+" crossorigin="anonymous"> 
+ 
+</head> 
+<body> 
+<center> 
+Umme Kulsum A25  
+<h1>Change of Study Center</h1> 
+ 
+<form action="main.jsp" method="post"> 
+ 
+<table> 
+<tr> 
+<td>UID No.</td> 
+<td><input type="text" name="uid" required/></td> 
+</tr> 
+<tr> 
+<td> 
+Current Center 
+</td> 
+<td> 
+<select name="currentCenter" required> 
+<option selected disabled hidden></option> 
+<option value="MUMBAI">MUMBAI</option> 
+<option value="PUNE">PUNE</option> 
+<option value="GUJRAT">GUJRAT</option> 
+</select> 
+</td> 
+</tr> 
+<tr> 
+<td> 
+New Center 
+</td> 
+<td> 
+<select name="newCenter" required> 
+<option selected disabled hidden></option> 
+<option value="MUMBAI">MUMBAI</option> 
+<option value="PUNE">PUNE</option> 
+<option value="GUJRAT">GUJRAT</option> 
+</select> 
+</td> 
+</tr> 
+ 
+</table> 
+<input type="submit" value="Submit"/> 
+</form> 
+ 
+</center> 
+ 
+<% 
+ 
+if(request.getParameter("uid") != null&& request.getParameter("currentCenter") != null&& 
+request.getParameter("newCenter") != null){ 
+out.println("<center><br>Your request to change Study Center from <br>" + 
+request.getParameter("currentCenter") + " to " + request.getParameter("newCenter") + "<br> has been 
+sent to the Administrator.</center>"); 
+} 
+Umme Kulsum A25  
+%> 
+ 
+</body> 
+</html> 
+ 
+ 
+Output: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6. Write a JSP program that demonstrates the use of JSP declaration, scriptlet, 
+directives, expression, header and footer. 
+ 
+ 
+ 
+Scriplet program 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<%String string1="JSP scriptlet"; %> 
+<%!String string2 = " ";%> 
+ 
+<!DOCTYPE html> 
+<html> 
+Umme Kulsum A25  
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<h1> 
+<%-- --%> 
+Welcome to <%=string1 %> 
+</h1> 
+<%if(string1.equals("jsp scriplet")) 
+out.println("hi"+string2); 
+else 
+out.println("hello, Kulsum"); 
+ 
+%> 
+</body> 
+</html> 
+ 
+ 
+Cookies 
+Main.jsp : 
+ 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+Umme Kulsum A25  
+<title>JSP EXAMPLE</title> 
+</head> 
+<body> 
+<%@ include file = "header.jsp" %> 
+<center> 
+<%! int data=50; %> 
+<%= "Value of the variable is:"+data %> <%! 
+double circle(int n){ return 3.14*n*n;} 
+%></br> 
+<%= "Area of circle is:"+ circle(3) %></br> <%! 
+int rectangle(int l,int b){ return l*b;} 
+%> 
+<%= "Area of rectangle is:"+rectangle(3,4 
+) %></br> <%! 
+int perimeter(int x,int y){ 
+int peri=2*(x+y); 
+return peri;} 
+%> 
+<%= "Perimeter of rectanlge:"+perimeter(5,6 
+) %></br> 
+<p>Thanks for visiting my page.</p> 
+</center> 
+<%@ include file = "footer.jsp" %> 
+</body> 
+</html> 
+ 
+Header.jsp : 
+ 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+ 
+<%! 
+int pageCount = 0; 
+void addCount() { 
+pageCount++; 
+} 
+%> 
+<% addCount(); %> 
+<html> 
+<head> 
+<title>JSP declaration, scriptlet, directives, expression, header and footer Example</title> </head> 
+<body> 
+<center> 
+<h2><u>The include Directive Example</u></h2> 
+<p><b>This site has been visited <%= pageCount %> times.</b></p> 
+</center> 
+Umme Kulsum A25  
+<br/><br/> 
+ 
+</body> 
+</html> 
+ 
+Footer.jsp: 
+ 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<br/><br/> 
+<center><p><b>Umme Kulsum 25</b></p></center></body></html> 
+Output: 
+Umme Kulsum A25  
+ 
+ 
+ 
+ 
+ 
+ 
+7. Write a JSP program that demonstrates the use of Cookies and Session tracking in 
+java. 
+ 
+ 
+package beanpkt; 
+ 
+public class employee { 
+int deptid; 
+String dname=""; 
+Umme Kulsum A25  
+int salary; 
+public employee () { 
+ 
+} 
+ 
+public int getDeptid() { 
+return deptid; 
+} 
+public void setDeptid(int deptid) { 
+this.deptid = deptid; 
+} 
+public String getDname() { 
+return dname; 
+} 
+public void setDname(String dname) { 
+this.dname = dname; 
+} 
+public int getSalary() { 
+return salary; 
+} 
+public void setSalary(int salary) { 
+this.salary = salary; 
+} 
+ 
+ 
+ 
+} 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<form action ="Process.jsp" method="post"> 
+DepID<input type ="text"name="deptid"> 
+Name<input type="text" name="name"> 
+Salary<input type="text" name="salary"> 
+<button type="submit" name="btnsubmit">Submit</button> 
+Umme Kulsum A25  
+ 
+</form> 
+</body> 
+</html> 
+ 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<jsp:useBean id="mybean1" class="beanpkt.employee"> 
+<% 
+String i = request.getParameter("deptid");int 
+id=Integer.parseInt(i); 
+String name = request.getParameter("name");String 
+s=request.getParameter("salary"); 
+int sal=Integer.parseInt(s); 
+%> 
+<jsp:setProperty 
+name="mybean1"property="deptid"value="<%=id 
+%>"></jsp:setProperty> 
+<jsp:setProperty 
+name="mybean1"property="dname"value="<%=name 
+%>"></jsp:setProperty> 
+<jsp:setProperty 
+name="mybean1"property="Salary"value="<%=name 
+%>"></jsp:setProperty> 
+<h4> Dept id: <jsp:getProperty name="mybean1" 
+property="deptid"/></h4> 
+<h4> Name: <jsp:getProperty name="mybean1" 
+property="dname"/></h4> 
+<h4> Salary: <jsp:getProperty name="mybean1" 
+property="salary"/></h4> 
+</jsp:useBean> 
+Umme Kulsum A25  
+ 
+ 
+ 
+</body> 
+</html> 
+ 
+  
+ 
+Cookie_demo.jsp 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+Umme Kulsum A25  
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<form action ="cookie_main.jsp" method="GET"> 
+username: <input type="text" 
+name="username"><br /> 
+Email: <input type="text" name="email" /> 
+<input type="submit" value="submit" /> 
+ 
+</form> 
+Umme Kulsum A25  
+</body> 
+</html> 
+ 
+ 
+Cookie_main jsp 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<% 
+Cookie username= new 
+Cookie("username",request.getParameter("username")); 
+Cookie email= new 
+Cookie("email",request.getParameter("email")); 
+username.setMaxAge(60*60*10); 
+email.setMaxAge(60*60*10); 
+response.addCookie(username); 
+response.addCookie( email) ; 
+ 
+ 
+%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<b> username:</b> 
+<%=request.getParameter("username") %> 
+<b>Email:</b> 
+<%=request.getParameter("email") %> 
+ 
+ 
+</body> 
+</html> 
+ 
+Umme Kulsum A25  
+Sessions 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<form action ="session.jsp"> 
+<input type="text" name="inputname"> 
+<input type="submit" value="click here !!"><br/> 
+ 
+</form> 
+ 
+</body> 
+</html> 
+ 
+//session.jsp 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<% 
+String uname =request.getParameter("inputname"); 
+out.print("welcome" + uname); 
+session.setAttribute("sessname",uname); 
+%> 
+<a href="output.jsp"> Check output page Here</a> 
+ 
+</body> 
+</html> 
+//output.jsp 
+<%@ page language="java" contentType="text/html; 
+charset=ISO-8859-1" 
+Umme Kulsum A25  
+pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<% 
+String name = (String) session.getAttribute("sessname"); 
+out.print("Hello user:you have entered the name:"+name); 
+%> 
+</body> 
+</html> 
+ 
+Umme Kulsum A25  
+ 
+ 
+ 
+ 
+date.jsp 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+    pageEncoding="ISO-8859-1"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="ISO-8859-1"> 
+<title>JSP Actions</title> 
+</head> 
+<body> 
+<p> 
+Today's date: <%= (new java.util.Date()).toLocaleString() %> 
+</p> 
+</body> 
+</html> 
+Output: 
+Umme Kulsum A25  
+ 
+MCA SEM 1 
+ADVANCED JAVA ASSIGNMENT 3 
+Name- Umme Kulsum | Div – A | Roll No - 25 
+1) Write a program to print “Hello World” using spring framework. 
+TestHelloWorld.java 
+package edu.bvimit; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class TestHelloWorld { 
+public static void main(String[] args) { 
+// TODO Auto-generated method stub 
+ClassPathXmlApplicationContext app=new 
+ClassPathXmlApplicationContext("appctx3.xml"); 
+Hello_world hw=(Hello_world)app.getBean("hw"); 
+System.out.println(hw.toString()); 
+} 
+} 
+appctx3.xml 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="hw" class="edu.bvimit.Hello_world"> 
+<property name="name" value="Kulsum"/> 
+</bean> 
+</beans> 
+Hello_world.java 
+package edu.bvimit; 
+public class Hello_world { 
+String name; 
+public String getName() { 
+return name; 
+} 
+public void setName(String name) { 
+this.name=name; 
+} 
+@Override 
+public String toString() { 
+return"Hello World,I'm "+name+"."; 
+} 
+} 
+OUTPUT: 
+2) Write a program to demonstrate dependency injection via setter method 
+Shape.java 
+package edu.bvimit; 
+public interface Shape { 
+void show(); 
+} 
+Circle.java 
+package edu.bvimit; 
+public class Circle implements Shape { 
+public void show() 
+{ 
+System.out.println("I am Circle"); 
+} 
+} 
+ShapeManager.java 
+package edu.bvimit; 
+public class ShapeManager { 
+Shape myShape; 
+public void show() 
+{ 
+this.myShape.show(); 
+} 
+public Shape getMyShape() { 
+return myShape; 
+} 
+public void setMyShape(Shape myShape) { 
+this.myShape=myShape; 
+} 
+} 
+ShapeTest.java 
+package edu.bvimit; 
+import org.springframework.context.ApplicationContext; 
+import 
+org.springframework.context.support.ClassPathXmlApplicatio
+nContext; 
+public class ShapeTest { 
+private static ApplicationContext appCon; 
+public static void main(String[] args) { 
+// TODO Auto-generated method stub 
+appCon=new 
+ClassPathXmlApplicationContext("appctx4.xml"); 
+ShapeManager factory= (ShapeManager) 
+appCon.getBean("ShapeMan"); 
+factory.show(); 
+} 
+} 
+appctx4.xml 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/sc
+hema/beans 
+http://www.springframework.org/schema/beans/spring
+beans.xsd"> 
+<bean id="Circle" class="edu.bvimit.Circle"></bean> 
+<bean id="ShapeMan" class="edu.bvimit.ShapeManager"> 
+<property name="myShape" ref="Circle"></property> 
+</bean> 
+</beans> 
+OUTPUT: 
+3) Write a program to demonstrate dependency injection via Constructor 
+Accounttest.java 
+package edu.bvimit; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class Accounttest { 
+public static void main(String[] args) { 
+// TODO Auto-generated method stub 
+ApplicationContext con=new ClassPathXmlApplicationContext("appctx2.xml"); 
+Account acc=(Account)con.getBean("Account"); 
+System.out.println(acc.toString()); 
+} 
+} 
+appctx2.xml 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="Account" class="edu.bvimit.Account"> 
+<constructor-arg name="id" value="1"></constructor-arg> 
+<constructor-arg name="name" value="Kulsum"></constructor-arg> 
+<constructor-arg name="balance" value="69000"></constructor-arg> 
+</bean> 
+</beans> 
+Account.java 
+package edu.bvimit; 
+public class Account { 
+int id; 
+String name; 
+int balance; 
+public Account(int id,String name,int balance) { 
+super(); 
+this.id=id; 
+this.name=name; 
+this.balance=balance; 
+} 
+public int getId() { 
+return id; 
+} 
+public void setId(int id) { 
+this.id = id; 
+} 
+public String getName() { 
+return name; 
+} 
+public void setName(String name) { 
+this.name = name; 
+} 
+public int getBalance() { 
+return balance; 
+} 
+public void setBalance(int balance) { 
+this.balance = balance; 
+} 
+@Override 
+public String toString() { 
+return"Account[id="+id+",name=" + name + ",balance=" +balance+"]"; 
+} 
+} 
+OUTPUT: 
+4) write a program to demonstrate Autowiring 
+LAPTOP.JAVA 
+package bvimit.edu; 
+public class Laptop { 
+public void compile() { 
+System.out.println("Laptop is compiling code..."); 
+} 
+} 
+DEVELOPER.JAVA 
+package bvimit.edu; 
+public class Developer { 
+private Laptop laptop;   
+public void code() { 
+laptop.compile(); 
+System.out.println("Developer is coding..."); 
+} 
+public void setLaptop(Laptop laptop) { 
+this.laptop = laptop; 
+} 
+} 
+AUTOWIRETEST.JAVA 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class AutowireTest { 
+public static void main(String[] args) { 
+ApplicationContext context = new 
+ClassPathXmlApplicationContext("appctx6.xml"); 
+Developer dev = (Developer) context.getBean("developer"); 
+dev.code(); 
+} 
+} 
+APPCTX6.XML 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema
+instance" 
+xsi:schemaLocation=" 
+http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring
+beans.xsd"> 
+<bean id="laptop" class="bvimit.edu.Laptop"/> 
+<bean id="developer" class="bvimit.edu.Developer" 
+autowire="byName"/> 
+</beans> 
+OUTPUT: 
+ 
+ Advanced Java 
+Assignment - 4 
+ 
+Name – Umme Kulsum | Div- A | Roll no -  25 
+ 
+Write a program to demonstrate Spring AOP – before advice.   
+ 
+BeforeAopKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Before; 
+import org.aspectj.lang.annotation.Pointcut; 
+@Aspect 
+public class BeforeAopKulsum{ 
+@Pointcut("execution(int BeforeOperationKulsum.*(..))") 
+public void p(){} 
+@Before("p()") 
+public void myAdvice(JoinPoint jp){ 
+System.out.println("before advice"); 
+} 
+}  
+ 
+BeforeOperationKulsum.java 
+ 
+package bvimit.edu; 
+public class BeforeOperationKulsum{ 
+public void msg(){System.out.println("method 1");} 
+public int m(){System.out.println("method 2 with return");return 2;} 
+public int k(){System.out.println("method 3 with return");return 3;} 
+} 
+ 
+aopctx1.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.BeforeOperationKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.BeforeAopKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCrea
+tor"/> 
+</beans> 
+ 
+ 
+ 
+ 
+ 
+BeforeTestKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class BeforeTestKulsum{ 
+public static void main(String[] args){ 
+ApplicationContext context=new ClassPathXmlApplicationContext("aopctx1.xml"); 
+BeforeOperationKulsum e=(BeforeOperationKulsum)context.getBean("opBean"); 
+System.out.println("calling m1......"); 
+e.msg(); 
+System.out.println("calling m2......"); 
+e.m(); 
+System.out.println("calling m3......"); 
+e.k(); 
+} 
+} 
+ 
+Output 
+ 
+ 
+ 
+Write a program to demonstrate Spring AOP – after advice.  
+  
+ AfterAopDataKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.annotation.After; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Pointcut; 
+@Aspect 
+public class AfterAopDataKulsum{ 
+@Pointcut("execution(int AfterOperationKulsum.*(..))") 
+public void p(){} 
+@After("p()") 
+public void myadvice(JoinPoint jp){ 
+System.out.println("after advice"); 
+} 
+} 
+ 
+ 
+AfterOperationKulsum.java 
+ 
+package bvimit.edu; 
+public class AfterOperationKulsum{ 
+public void msg(){System.out.println("method 1");} 
+public int m(){System.out.println("method 2 with return");return 2;} 
+public int k(){System.out.println("method 3 with return");return 3;} 
+} 
+ 
+aopctx.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.AfterOperationKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.AfterAopDataKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreat
+or"/> 
+</beans> 
+ 
+AfterTestKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class AfterTestKulsum{ 
+public static void main(String[] args){ 
+ApplicationContext context=new ClassPathXmlApplicationContext("aopctx.xml"); 
+AfterOperationKulsum e=(AfterOperationKulsum)context.getBean("opBean"); 
+System.out.println("calling m1......"); 
+e.msg(); 
+System.out.println("calling m2......"); 
+e.m(); 
+System.out.println("calling m3......"); 
+e.k(); 
+} 
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+Output 
+ 
+ 
+ 
+Write a program to demonstrate Spring AOP – around advice. 
+ 
+BankaopdataKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.ProceedingJoinPoint; 
+import org.aspectj.lang.annotation.Around; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Pointcut; 
+@Aspect 
+public class BankaopdataKulsum{ 
+@Pointcut("execution(* BankKulsum.*(..))") 
+public void a(){} 
+@Around("a()") 
+public Object myadvice(ProceedingJoinPoint p)throws Throwable{ 
+System.out.println("Around concern Before calling actual method"); 
+Object obj=p.proceed(); 
+System.out.println("Around Concern After calling actual method"); 
+return obj; 
+} 
+} 
+ 
+ 
+BankKulsum.java 
+ 
+package bvimit.edu; 
+public class BankKulsum{ 
+public void welcome(){System.out.println("welcome to bank");} 
+public int icici(){System.out.println("icici bank interest rate");return 7;} 
+public int pnb(){System.out.println("pnb bank interest rate");return 6;} 
+} 
+ 
+ 
+ 
+Bankaopdata.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.BankKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.BankaopdataKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreat
+or"/> 
+</beans> 
+ 
+BanktestKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class BanktestKulsum{ 
+private static ApplicationContext context; 
+public static void main(String[] args){ 
+context=new ClassPathXmlApplicationContext("Bankaopdata.xml"); 
+BankKulsum e=(BankKulsum)context.getBean("opBean"); 
+System.out.println("Calling welcome method..."); 
+e.welcome(); 
+System.out.println("Calling icici method..."); 
+e.icici(); 
+System.out.println("Calling pnb method..."); 
+e.pnb(); 
+} 
+} 
+ 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Write a program to demonstrate Spring AOP – after returning advice. 
+ 
+BankaopdataKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.annotation.AfterReturning; 
+import org.aspectj.lang.annotation.Aspect; 
+@Aspect 
+public class BankaopdataKulsum{ 
+@AfterReturning(pointcut="execution(* BankKulsum.*(..))",returning="result") 
+public void myadvice(JoinPoint jp,Object result){ 
+System.out.println("AfterReturning concern"); 
+System.out.println("Result in advice"+result); 
+} 
+} 
+ 
+BankKulsum.java 
+ 
+package bvimit.edu; 
+public class BankKulsum{ 
+public void welcome(){System.out.println("welcome to bank");} 
+public int icici(){System.out.println("icici bank interest rate");return 7;} 
+public int pnb(){System.out.println("pnb bank interest rate");return 6;} 
+} 
+ 
+Bankaopdata.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.BankKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.BankaopdataKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreat
+or"/> 
+</beans> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BanktestKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class BanktestKulsum{ 
+private static ApplicationContext context; 
+public static void main(String[] args){ 
+context=new ClassPathXmlApplicationContext("Bankaopdata.xml"); 
+BankKulsum e=(BankKulsum)context.getBean("opBean"); 
+e.welcome(); 
+e.icici(); 
+e.pnb(); 
+} 
+} 
+ 
+ 
+ 
+ 
+ 
+Write a program to demonstrate Spring AOP – after throwing advice. 
+ 
+Operationaop_atKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.annotation.AfterThrowing; 
+import org.aspectj.lang.annotation.Aspect; 
+@Aspect 
+public class Operationaop_atKulsum{ 
+@AfterThrowing(pointcut="execution(* Operation_atKulsum.*(..))",throwing="error") 
+public void myadvice(JoinPoint jp,Throwable error){ 
+System.out.println("AfterThrowing concern"); 
+System.out.println("Exception is: "+error); 
+System.out.println("end of after throwing advice...."); 
+} 
+} 
+ 
+ 
+ 
+ 
+ 
+Operation_atKulsum.java 
+ 
+package bvimit.edu; 
+public class Operation_atKulsum{ 
+public void validate(int att)throws Exception{ 
+if(att<75){ 
+throw new ArithmeticException("Not eligible for exam"); 
+}else{ 
+System.out.println("Eligible for exam"); 
+} 
+} 
+} 
+ 
+validctx.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.Operation_atKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.Operationaop_atKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreat
+or"/> 
+</beans> 
+ 
+ 
+OperationTest_atKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class OperationTest_atKulsum{ 
+private static ApplicationContext context; 
+public static void main(String[] args){ 
+ApplicationContext context=new ClassPathXmlApplicationContext("validctx.xml"); 
+Operation_atKulsum op=(Operation_atKulsum)context.getBean("opBean"); 
+System.out.println("calling validate...."); 
+try{ 
+op.validate(85); 
+}catch(Exception e){System.out.println(e);} 
+System.out.println("calling validate again...."); 
+try{ 
+op.validate(25); 
+}catch(Exception e){System.out.println(e);} 
+} } 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+Write a program to demonstrate Spring AOP –pointcuts.  
+ 
+Operation_pcKulsum.java 
+ 
+package bvimit.edu; 
+public class Operation_pcKulsum{ 
+public void msg(){System.out.println("method 1");} 
+public int m(){System.out.println("method 2 with return");return 2;} 
+public int k(){System.out.println("method 3 with return");return 3;} 
+} 
+ 
+Aopdata_pcKulsum.java 
+ 
+package bvimit.edu; 
+import org.aspectj.lang.JoinPoint; 
+import org.aspectj.lang.annotation.After; 
+import org.aspectj.lang.annotation.Pointcut; 
+import org.aspectj.lang.annotation.Aspect; 
+import org.aspectj.lang.annotation.Before; 
+@Aspect 
+public class Aopdata_pcKulsum{ 
+@Pointcut("execution(int Operation_pcKulsum.*(..))") 
+public void p(){} 
+@After("p()") 
+public void myadvice(JoinPoint jp){ 
+System.out.println("After advice"); 
+} 
+@Pointcut("execution(* Operation_pcKulsum.*(..))") 
+public void i(){} 
+@Before("i()") 
+public void myadvice1(JoinPoint jp){ 
+System.out.println("Before advice"); 
+} 
+} 
+Test_pcKulsum.java 
+ 
+package bvimit.edu; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class Test_pcKulsum{ 
+public static void main(String[] args){ 
+ApplicationContext context=new ClassPathXmlApplicationContext("aopctx_pc.xml"); 
+Operation_pcKulsum e=(Operation_pcKulsum)context.getBean("opBean"); 
+System.out.println("calling m1..."); 
+e.msg(); 
+System.out.println("calling m2..."); 
+e.m(); 
+System.out.println("calling m3..."); 
+e.k(); 
+} 
+} 
+ 
+ 
+aopctx_pc.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="opBean" class="bvimit.edu.Operation_pcKulsum"/> 
+<bean id="trackMyBean" class="bvimit.edu.Aopdata_pcKulsum"/> 
+<bean 
+class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreat
+or"/> 
+</beans> 
+ 
+Output 
+ 
+ Advanced Java 
+Assignment - 5 
+ 
+Name – Umme Kulsum | Div – A | Roll no -25 
+ 
+1. Write a program to insert, update and delete records from the given table.  
+Movie1Kulsum.java 
+ 
+package org.me; 
+public class Movie1Kulsum{ 
+int mid;String title;String actor; 
+public Movie1Kulsum(int mid,String title,String actor){ 
+super(); 
+this.mid=mid; 
+this.title=title; 
+this.actor=actor; 
+} 
+public Movie1Kulsum(){super();} 
+public int getMid(){return mid;} 
+public void setMid(int mid){this.mid=mid;} 
+public String getTitle(){return title;} 
+public void setTitle(String title){this.title=title;} 
+public String getActor(){return actor;} 
+public void setActor(String actor){this.actor=actor;} 
+} 
+ 
+MovieDAOKulsum.java 
+ 
+package org.me; 
+import org.springframework.jdbc.core.JdbcTemplate; 
+public class MovieDAOKulsum{ 
+JdbcTemplate jdbcTemplate; 
+public void setJdbcTemplate(JdbcTemplate jdbcTemplate){ 
+this.jdbcTemplate=jdbcTemplate; 
+} 
+public int insMovie(Movie1Kulsum m1){ 
+String insSql="insert into mymovies1 
+values("+m1.getMid()+",'"+m1.getTitle()+"','"+m1.getActor()+"')"; 
+return jdbcTemplate.update(insSql); 
+} 
+public int updateMovie(Movie1Kulsum m1){ 
+String query="update mymovies1 set title='"+m1.getTitle()+"',actor='"+m1.getActor()+"' where 
+mid='"+m1.getMid()+"'"; 
+return jdbcTemplate.update(query); 
+} 
+public int deleteMovie(Movie1Kulsum m1){ 
+String query="delete from mymovies1 where mid='"+m1.getMid()+"'"; 
+return jdbcTemplate.update(query); 
+} 
+} 
+ 
+appctx.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="org.postgresql.Driver"/> 
+<property name="url" value="jdbc:postgresql://localhost:5432/postgres"/> 
+<property name="username" value="postgres"/> 
+<property name="password" value="admin"/> 
+</bean> 
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+<property name="dataSource" ref="ds"/> 
+</bean> 
+<bean id="mymovie" class="org.me.MovieDAOKulsum"> 
+<property name="jdbcTemplate" ref="jdbcTemplate"/> </bean> </beans> 
+MovieTestKulsum.java 
+package org.me; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class MovieTestKulsum{ 
+private static ApplicationContext appCon; 
+public static void main(String[] args){ 
+appCon=new ClassPathXmlApplicationContext("appctx.xml"); 
+MovieDAOKulsum m1=(MovieDAOKulsum)appCon.getBean("mymovie"); 
+// insert 
+Movie1Kulsum t1=new Movie1Kulsum(10,"Mirzapur","P"); 
+System.out.println(m1.insMovie(t1)); 
+// update 
+//System.out.println(m1.updateMovie(new Movie1Kulsum(10,"War","Hrithik"))); 
+// delete 
+//Movie1Kulsum t2=new Movie1Kulsum(); 
+//t2.setMid(10); 
+//System.out.println(m1.deleteMovie(t2)); 
+} 
+} 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. Write a program to demonstrate PreparedStatement in Spring JdbcTemplate.   
+ 
+Movie1Kulsum.java 
+ 
+package org.me; 
+public class Movie1Kulsum{ 
+int mid;String title;String actor; 
+public Movie1Kulsum(int mid,String title,String actor){ 
+super(); 
+this.mid=mid; 
+this.title=title; 
+this.actor=actor; 
+} 
+public Movie1Kulsum(){super();} 
+public int getMid(){return mid;} 
+public void setMid(int mid){this.mid=mid;} 
+public String getTitle(){return title;} 
+public void setTitle(String title){this.title=title;} 
+public String getActor(){return actor;} 
+public void setActor(String actor){this.actor=actor;} 
+} 
+ 
+MovieDAO1Kulsum.java 
+ 
+package org.me; 
+import java.sql.PreparedStatement; 
+import java.sql.SQLException; 
+import org.springframework.dao.DataAccessException; 
+import org.springframework.jdbc.core.JdbcTemplate; 
+import org.springframework.jdbc.core.PreparedStatementCallback; 
+public class MovieDAO1Kulsum{ 
+JdbcTemplate jdbcTemplate; 
+public void setJdbcTemplate(JdbcTemplate jdbcTemplate){ 
+this.jdbcTemplate=jdbcTemplate; 
+} 
+public Boolean saveMovieByPreparedStatement(final Movie1Kulsum e){ 
+String query="insert into movies values(?,?,?)"; 
+return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){ 
+@Override 
+public Boolean doInPreparedStatement(PreparedStatement ps)throws 
+SQLException,DataAccessException{ 
+ps.setInt(1,e.getMid()); 
+ps.setString(2,e.getTitle()); 
+ps.setString(3,e.getActor()); 
+return ps.execute(); 
+} 
+}); 
+} 
+} 
+ 
+appctx1.xml 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="org.postgresql.Driver"/> 
+<property name="url" value="jdbc:postgresql://localhost:5432/postgres"/> 
+<property name="username" value="postgres"/> 
+<property name="password" value="pass"/> 
+</bean> 
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+<property name="dataSource" ref="ds"/> 
+</bean> 
+<bean id="mymovie" class="org.me.MovieDAO1Kulsum"> 
+<property name="jdbcTemplate" ref="jdbcTemplate"/> 
+</bean> 
+</beans> 
+ 
+MovieTest1Kulsum.java 
+ 
+package org.me; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class MovieTest1Kulsum{ 
+private static ApplicationContext appCon; 
+public static void main(String[] args){ 
+appCon=new ClassPathXmlApplicationContext("appctx1.xml"); 
+MovieDAO1Kulsum m1=(MovieDAO1Kulsum)appCon.getBean("mymovie"); 
+m1.saveMovieByPreparedStatement(new Movie1Kulsum(5,"Bhaijaan","Kulsum")); 
+} 
+} 
+ 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3. Write a program in Spring JDBC to demonstrate ResultSetExtractor Interface.  
+ 
+Movie2Kulsum.java 
+package org.me; 
+public class Movie2Kulsum{ 
+int mid;String title;String actor; 
+public int getMid(){return mid;} 
+public void setMid(int mid){this.mid=mid;} 
+public String getTitle(){return title;} 
+public void setTitle(String title){this.title=title;} 
+public String getActor(){return actor;} 
+public void setActor(String actor){this.actor=actor;} 
+public String toString(){return mid+" "+title+" "+actor;} 
+} 
+ 
+MovieDAO2Kulsum.java 
+ 
+package org.me; 
+import java.sql.ResultSet; 
+import java.sql.SQLException; 
+import java.util.ArrayList; 
+import java.util.List; 
+import org.springframework.dao.DataAccessException; 
+import org.springframework.jdbc.core.JdbcTemplate; 
+import org.springframework.jdbc.core.ResultSetExtractor; 
+public class MovieDAO2Kulsum{ 
+JdbcTemplate jdbcTemplate; 
+public void setJdbcTemplate(JdbcTemplate jdbcTemplate){this.jdbcTemplate=jdbcTemplate;} 
+public List<Movie2Kulsum> getAllMovie(){ 
+return jdbcTemplate.query("select * from mymovies1",new 
+ResultSetExtractor<List<Movie2Kulsum>>(){ 
+@Override 
+public List<Movie2Kulsum> extractData(ResultSet rs)throws SQLException,DataAccessException{ 
+List<Movie2Kulsum> list=new ArrayList<Movie2Kulsum>(); 
+while(rs.next()){ 
+Movie2Kulsum e=new Movie2Kulsum(); 
+e.setMid(rs.getInt(1)); 
+e.setTitle(rs.getString(2)); 
+e.setActor(rs.getString(3)); 
+list.add(e); 
+} 
+return list; 
+} 
+}); 
+} 
+} 
+ 
+appctx2.xml 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="org.postgresql.Driver"/> 
+<property name="url" value="jdbc:postgresql://localhost:5432/postgres"/> 
+<property name="username" value="postgres"/> 
+<property name="password" value="password"/> 
+</bean> 
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+<property name="dataSource" ref="ds"/> 
+</bean> 
+<bean id="mymovie" class="org.me.MovieDAO2Kulsum"> 
+<property name="jdbcTemplate" ref="jdbcTemplate"/> 
+</bean> </beans> 
+MovieTest2Kulsum.java 
+ 
+package org.me; 
+import java.util.List; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class MovieTest2Kulsum{ 
+private static ApplicationContext appCon; 
+public static void main(String[] args){ 
+appCon=new ClassPathXmlApplicationContext("appctx2.xml"); 
+MovieDAO2Kulsum m1=(MovieDAO2Kulsum)appCon.getBean("mymovie"); 
+List<Movie2Kulsum> list=m1.getAllMovie(); 
+for(Movie2Kulsum e:list) 
+System.out.println(e); 
+} 
+} 
+ 
+Output 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4. Write a program to demonstrate RowMapper interface to fetch the records 
+from the database. 
+ 
+Movie3Kulsum.java 
+ 
+package org.me; 
+public class Movie3Kulsum{ 
+int mid;String title;String actor; 
+public Movie3Kulsum(int mid,String title,String actor){ 
+super(); 
+this.mid=mid; 
+this.title=title; 
+this.actor=actor; 
+} 
+public Movie3Kulsum(){super();} 
+public int getMid(){return mid;} 
+public void setMid(int mid){this.mid=mid;} 
+public String getTitle(){return title;} 
+public void setTitle(String title){this.title=title;} 
+public String getActor(){return actor;} 
+public void setActor(String actor){this.actor=actor;} 
+public String toString(){return mid+" "+title+" "+actor;} 
+} 
+ 
+MovieDAO3Kulsum.java 
+ 
+package org.me; 
+import java.sql.ResultSet; 
+import java.sql.SQLException; 
+import java.util.List; 
+import org.springframework.jdbc.core.JdbcTemplate; 
+import org.springframework.jdbc.core.RowMapper; 
+public class MovieDAO3Kulsum{ 
+JdbcTemplate jdbcTemplate; 
+public void setJdbcTemplate(JdbcTemplate jdbcTemplate){this.jdbcTemplate=jdbcTemplate;} 
+public List<Movie3Kulsum> getAllEmployeesRowMapper(){ 
+return jdbcTemplate.query("select * from mymovies1",new RowMapper<Movie3Kulsum>(){ 
+@Override 
+public Movie3Kulsum mapRow(ResultSet rs,int rownumber)throws SQLException{ 
+Movie3Kulsum e=new Movie3Kulsum(); 
+e.setMid(rs.getInt(1)); 
+e.setTitle(rs.getString(2)); 
+e.setActor(rs.getString(3)); 
+return e; 
+} 
+}); 
+} 
+} 
+ 
+appctx3.xml 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="org.postgresql.Driver"/> 
+<property name="url" value="jdbc:postgresql://localhost:5432/postgres"/> 
+<property name="username" value="postgres"/> 
+<property name="password" value="password"/> 
+</bean> 
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+<property name="dataSource" ref="ds"/> 
+</bean> 
+<bean id="mymovie" class="org.me.MovieDAO3Kulsum"> 
+<property name="jdbcTemplate" ref="jdbcTemplate"/> 
+</bean> 
+</beans> 
+ 
+MovieTest3Kulsum.java 
+ 
+package org.me; 
+import java.util.List; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; 
+public class MovieTest3Kulsum{ 
+private static ApplicationContext appCon; 
+public static void main(String[] args){ 
+appCon=new ClassPathXmlApplicationContext("appctx3.xml"); 
+MovieDAO3Kulsum m1=(MovieDAO3Kulsum)appCon.getBean("mymovie"); 
+List<Movie3Kulsum> list=m1.getAllEmployeesRowMapper(); 
+for(Movie3Kulsum e:list) 
+System.out.println(e); 
+} 
+} 
+ 
+Output 
+ Umme Kulsum Div - A Roll no - 25 
+Advanced Java 
+Assignment 6 
+Q1. Write a program to create a simple Spring Boot application that prints a 
+message. 
+KulsumController.java 
+package com.example.demo; 
+ 
+import org.springframework.web.bind.annotation.RequestMapping; 
+import org.springframework.web.bind.annotation.RestController; 
+ 
+@RestController 
+public class KulsumController { 
+ 
+    @RequestMapping("/") 
+    public String hello() { 
+        return "Kulsum is here!"; 
+    } 
+} 
+ 
+KulsumApplication.java 
+package com.example.demo; 
+ 
+import org.springframework.boot.SpringApplication; 
+import org.springframework.boot.autoconfigure.SpringBootApplication; 
+ 
+@SpringBootApplication 
+public class KulsumApplication { 
+ 
+    public static void main(String[] args) { 
+        SpringApplication.run(KulsumApplication.class, args); 
+    } 
+} 
+} 
+ 
+ 
+Output: 
+ 
+ 
+ 
+Umme Kulsum Div - A Roll no - 25 
+ 
+Q2. Write a program to demonstrate RESTful Web Services with Spring Boot. 
+KulsumBean.java 
+package com.example.demo; 
+ 
+public class KulsumBean { 
+ 
+    private String message; 
+ 
+    public KulsumBean(String message) { 
+        this.message = message; 
+    } 
+ 
+    public String getMessage() { 
+        return message; 
+    } 
+ 
+    public void setMessage(String message) { 
+        this.message = message; 
+    } 
+ 
+    @Override 
+    public String toString() { 
+        return String.format("KulsumBean [message=%s]", message); 
+    } 
+} 
+ 
+KulsumController.java 
+package com.example.demo; 
+ 
+import org.springframework.web.bind.annotation.GetMapping; 
+import org.springframework.web.bind.annotation.RestController; 
+ 
+@RestController 
+public class KulsumController { 
+ 
+    @GetMapping(path = "/hello-kulsum") 
+    public String helloKulsum() { 
+        return "Kulsum is here!"; 
+    } 
+ 
+    @GetMapping(path = "/hello-kulsum-bean") 
+    public KulsumBean helloKulsumBean() { 
+        return new KulsumBean("Kaise ho Kulsum?"); 
+    } 
+} 
+ 
+KulsumApplication.java 
+package com.example.demo; 
+ 
+import org.springframework.boot.SpringApplication; 
+Umme Kulsum Div - A Roll no - 25 
+import org.springframework.boot.autoconfigure.SpringBootApplication; 
+ 
+@SpringBootApplication 
+public class KulsumApplication { 
+ 
+    public static void main(String[] args) { 
+        SpringApplication.run(KulsumApplication.class, args); 
+    } 
+} 
+} 
+ 
+Output: 
+ 
+ 
+ 
+Q3. Write a program to demonstrate Database Connection with Spring with Spring 
+Boot. 
+DatabaseController.java 
+package com.example.demo; 
+ 
+import java.sql.Connection; 
+import java.sql.DriverManager; 
+ 
+import org.springframework.web.bind.annotation.GetMapping; 
+import org.springframework.web.bind.annotation.RestController; 
+ 
+@RestController 
+public class DatabaseController { 
+ 
+    @GetMapping("/db-connect") 
+    public String connectDB() { 
+        try { 
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
+            Connection con = DriverManager.getConnection( 
+                    "jdbc:mysql://localhost:3306/testdb", 
+                    "root", 
+                    "root" 
+            ); 
+Umme Kulsum Div - A Roll no - 25 
+ 
+            if (con != null) { 
+                return "Database Connected Successfully!"; 
+            } 
+        } catch (Exception e) { 
+            return e.toString(); 
+        } 
+        return "Connection Failed!"; 
+    } 
+} 
+ 
+KulsumApplication.java 
+package com.example.demo; 
+ 
+import org.springframework.boot.SpringApplication; 
+import org.springframework.boot.autoconfigure.SpringBootApplication; 
+ 
+@SpringBootApplication 
+public class KulsumApplication { 
+ 
+    public static void main(String[] args) { 
+        SpringApplication.run(KulsumApplication.class, args); 
+    } 
+} 
+ 
+Output: 
+ 
